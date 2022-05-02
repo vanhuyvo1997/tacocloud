@@ -24,7 +24,8 @@ public class TacoOrder {
 	private String ccExpiration;
 	private String ccCVV;
 	private Date placedAt;
-	@OneToMany(targetEntity = Taco.class)
+
+	@OneToMany(mappedBy = "orders")
 	private List<Taco> tacos;
 
 	@ManyToOne(targetEntity = User.class)
