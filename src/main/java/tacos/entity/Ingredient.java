@@ -26,7 +26,7 @@ public class Ingredient {
 	@Enumerated(EnumType.STRING)
 	private Type type;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "ingredients", targetEntity = Taco.class)
 	private List<Taco> tacos;
 
 	public static enum Type {

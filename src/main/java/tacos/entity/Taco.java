@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -29,9 +30,14 @@ public class Taco {
 	@Column(name = "created_at")
 	private Date createdAt;
 
-	@ManyToMany(mappedBy = "tacos")
+	@ManyToMany(targetEntity = Ingredient.class)
 	private List<Ingredient> ingredients;
 	
 	@ManyToOne(targetEntity = TacoOrder.class)
-	private List<TacoOrder> orders;
+	private TacoOrder order;
+	
+	@PrePersist
+	private void createdAt() {
+		createdAt = new Date();
+	}
 }
