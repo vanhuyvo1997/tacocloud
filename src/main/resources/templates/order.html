@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Taco Order</title>
+	</head>
+	<body>
+		<h1>Input your info</h1>
+		<a th:href="@{/design}">Design another taco</a>
+		<form method="POST" th:action="@{/order}" th:object="${orderForm}">
+			<div>
+				<label for="deliveryName">Delivery Name</label>
+				<input th:field="*{deliveryName}">
+			</div>
+			<br>
+			<div>
+				<label for="deliveryStreet">Delivery Street</label>
+				<input th:field="*{deliveryStreet}">
+			</div>
+			<br>
+			<div>
+				<label for="deliveryCity">Delivery City</label>
+				<input th:field="*{deliveryCity}">
+			</div>
+			<br>
+			<div>
+				<label for="deliveryState">Delivery State</label>
+				<input th:field="*{deliveryState}">
+			</div>
+			<br>
+			<div>
+				<label for="deliveryZip">Delivery Zip</label>
+				<input th:field="*{deliveryZip}">
+			</div>
+			<br>
+			<div>
+				<label for="ccNumber">Credit card</label>
+				<input th:field="*{ccNumber}">
+			</div>
+			<br>
+			<div>
+				<label for="ccExpiration">Expiration</label>
+				<input th:field="*{ccExpiration}">
+			</div>
+			<br>
+			<div>
+				<label for="ccCVV">CVV</label>
+				<input th:field="*{ccCVV}">
+			</div>
+			<br>
+			<button type="submit">Submit order</button>
+		</form>
+	</body>
+</html>
