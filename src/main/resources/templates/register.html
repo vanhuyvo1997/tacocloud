@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register Form</title>
+</head>
+<body>
+	<h1>Taco Register</h1>
+	<a th:href="@{/login}">Back to Login</a>
+	<form method="POST" th:action="@{/register}" th:object="${registerForm}">
+		<div>
+			<label for="username">User name:</label>
+			<input th:field="*{username}">
+			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+		</div>
+		<div>
+			<label for="password">Password:</label>
+			<input th:field="*{password}" type="password">
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+		</div>
+		<div>
+			<label for="confirmPassword">Confirm password:</label>
+			<input th:field="*{confirmPassword}" type="password">
+			<span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
+		</div>
+		<div>
+			<label for="fullname">Full name:</label>
+			<input th:field="*{fullname}">
+			<span th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></span>
+		</div>
+		<div>
+			<label for="street">Street:</label>
+			<input th:field="*{street}">
+			<span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
+		</div>
+		<div>
+			<label for="city">City:</label>
+			<input th:field="*{city}">
+			<span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+		</div>
+		<div>
+			<label for="state">State:</label>
+			<input th:field="*{state}">
+			<span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
+		</div>
+		<div>
+			<label for="zip">Zip:</label>
+			<input th:field="*{zip}">
+			<span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>
+		</div>
+		<div>
+			<label for="phoneNumber">Phone number:</label>
+			<input th:field="*{phoneNumber}">
+			<span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
+		</div>
+		<button type="submit">Register</button>
+	</form>
+</body>
+</html>
