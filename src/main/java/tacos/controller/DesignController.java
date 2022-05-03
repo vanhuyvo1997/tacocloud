@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +22,6 @@ import tacos.entity.Ingredient.Type;
 import tacos.entity.Taco;
 import tacos.entity.TacoOrder;
 import tacos.repository.IngredientRepository;
-import tacos.repository.TacoRepository;
 
 @Controller
 @RequestMapping("/design")
@@ -27,12 +29,10 @@ import tacos.repository.TacoRepository;
 public class DesignController {
 
 	private final IngredientRepository ingredientRepo;
-	private final TacoRepository tacoRepo;
 
 	@Autowired
-	public DesignController(IngredientRepository ingredientRepo, TacoRepository tacoRepo) {
+	public DesignController(IngredientRepository ingredientRepo) {
 		this.ingredientRepo = ingredientRepo;
-		this.tacoRepo = tacoRepo;
 	}
 
 	private void loadIngredientToModel(Model model) {
@@ -51,7 +51,7 @@ public class DesignController {
 	private Taco taco() {
 		return new Taco();
 	}
-	
+
 	@ModelAttribute("order")
 	private TacoOrder order() {
 		return new TacoOrder();
@@ -62,9 +62,13 @@ public class DesignController {
 		loadIngredientToModel(model);
 		return "design";
 	}
-	
+
 	@PostMapping
-	public String processDesign(Taco taco, @SessionAttribute TacoOrder order) {
+	public String processDesign(@Valid Taco taco, Errors errors, @SessionAttribute TacoOrder order, Model model) {
+		if (errors.hasErrors()) {
+			return getDesign(model);
+		}
+		taco.setOrder(order);
 		order.addTaco(taco);
 		return "redirect:/order";
 	}

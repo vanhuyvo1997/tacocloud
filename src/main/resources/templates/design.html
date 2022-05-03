@@ -49,6 +49,12 @@
 		<div>
 			<label for="name">Taco name:</label> <input th:field="*{name}">
 		</div>
+		
+		<div th:if="${#fields.hasAnyErrors()}">
+			<ul>
+				<li th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+			</ul>
+		</div>
 		<br>
 		<button type="submit">Create Taco</button>
 	</form>

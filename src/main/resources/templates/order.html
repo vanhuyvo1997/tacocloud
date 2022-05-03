@@ -10,41 +10,49 @@
 			<div>
 				<label for="deliveryName">Delivery Name</label>
 				<input th:field="*{deliveryName}">
+				<span th:if="${#fields.hasErrors('deliveryName')}" th:errors="*{deliveryName}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="deliveryStreet">Delivery Street</label>
 				<input th:field="*{deliveryStreet}">
+				<span th:if="${#fields.hasErrors('deliveryStreet')}" th:errors="*{deliveryStreet}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="deliveryCity">Delivery City</label>
 				<input th:field="*{deliveryCity}">
+				<span th:if="${#fields.hasErrors('deliveryCity')}" th:errors="*{deliveryCity}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="deliveryState">Delivery State</label>
 				<input th:field="*{deliveryState}">
+				<span th:if="${#fields.hasErrors('deliveryState')}" th:errors="*{deliveryState}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="deliveryZip">Delivery Zip</label>
 				<input th:field="*{deliveryZip}">
+				<span th:if="${#fields.hasErrors('deliveryZip')}" th:errors="*{deliveryZip}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="ccNumber">Credit card</label>
 				<input th:field="*{ccNumber}">
+				<span th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="ccExpiration">Expiration</label>
 				<input th:field="*{ccExpiration}">
+				<span th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}">Error message</span>
 			</div>
 			<br>
 			<div>
 				<label for="ccCVV">CVV</label>
 				<input th:field="*{ccCVV}">
+				<span th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}">Error message</span>
 			</div>
 			<br>
 			<button type="submit">Submit order</button>

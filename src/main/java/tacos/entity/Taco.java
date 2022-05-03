@@ -12,11 +12,21 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "taco")
 public class Taco {
 
@@ -25,17 +35,20 @@ public class Taco {
 	private long id;
 
 	@Column(name = "name", length = 32, nullable = false)
+	@NotNull
+	@Length(min = 3, max = 32, message = "Name is between 3 and 32")
 	private String name;
 
 	@Column(name = "created_at")
 	private Date createdAt;
 
 	@ManyToMany(targetEntity = Ingredient.class)
+	@NotEmpty(message = "Ingredient must be chosen")
 	private List<Ingredient> ingredients;
-	
+
 	@ManyToOne(targetEntity = TacoOrder.class)
 	private TacoOrder order;
-	
+
 	@PrePersist
 	private void createdAt() {
 		createdAt = new Date();
