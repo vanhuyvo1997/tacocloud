@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import lombok.Data;
+import tacos.entity.User;
 
 @Data
 public class OrderForm {
@@ -33,5 +34,14 @@ public class OrderForm {
 
 	@Digits(integer = 3, fraction = 3, message = "Invalid CVV")
 	private String ccCVV;
+
+	public void read(User user) {
+		setDeliveryName(user.getFullname());
+		setDeliveryStreet(user.getStreet());
+		setDeliveryCity(user.getCity());
+		setDeliveryState(user.getState());
+		setDeliveryZip(user.getZip());
+		
+	}
 
 }

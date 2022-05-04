@@ -1,5 +1,8 @@
 package tacos.controller;
 
+import java.security.Principal;
+import java.util.Objects;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tacos.entity.User;
 import tacos.form.RegisterForm;
 import tacos.repository.UserRepository;
 
@@ -29,7 +31,11 @@ public class RegistrationController {
 	}
 
 	@GetMapping
-	public String getRegisterForm(Model model) {
+	public String getRegisterForm(Model model, Principal principal) {
+		if (Objects.nonNull(principal)) {
+			return "redirect:/";
+		}
+
 		model.addAttribute("registerForm", new RegisterForm());
 		return "register";
 	}
@@ -38,14 +44,20 @@ public class RegistrationController {
 	public String processRegister(@Valid RegisterForm registerForm, Errors errors, Model model) {
 		boolean isMatching = registerForm.getPassword().equals(registerForm.getConfirmPassword());
 		if (!isMatching) {
-			errors.rejectValue("confirmPassword", "confirmPasswordNotMatch", "Confirm password not match");
+			errors.rejectValue("confirmPassword", "confirmPassword", "Confirm password not match");
 		}
+
+		var user = userRepo.findByUsername(registerForm.getUsername());
+		if (Objects.nonNull(user)) {
+			errors.rejectValue("username", "username", "User name is already in use");
+		}
+		
 		if (errors.hasErrors()) {
 			model.addAttribute("registerForm", registerForm);
 			return "register";
 		}
-		User user = registerForm.toUser(passwordEncoder);
-		userRepo.save(user);
-		return "redirect:/login";
+		;
+		userRepo.save(registerForm.toUser(passwordEncoder));
+		return "redirect:/tacologin";
 	}
 }

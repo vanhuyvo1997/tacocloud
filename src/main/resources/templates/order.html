@@ -6,6 +6,7 @@
 	<body>
 		<h1>Input your info</h1>
 		<a th:href="@{/design}">Design another taco</a>
+		<a th:href="@{/logout}">Log out</a>
 		<form method="POST" th:action="@{/order}" th:object="${orderForm}">
 			<div>
 				<label for="deliveryName">Delivery Name</label>

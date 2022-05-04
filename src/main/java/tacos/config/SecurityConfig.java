@@ -37,7 +37,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/order", "/design").hasAnyAuthority("ROLE_USER")
 				.antMatchers("/**").permitAll()
 			.and()
-				.formLogin();
+				.formLogin()
+					.loginPage("/tacologin")
+					.loginProcessingUrl("/authenticate")
+					//.loginProcessingUrl("/login")
+					.usernameParameter("username")
+					.passwordParameter("password")
+					.defaultSuccessUrl("/")
+			.and()
+				.logout()
+					.logoutSuccessUrl("/");
 	}
 
 }

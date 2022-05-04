@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Home Taco</title>
-	</head>
-	<body>
-		<h1>Welcome to Taco</h1>
-		<a th:href="@{/design}">Design taco</a>
-		<a th:href="@{/register}">Register</a>
-	</body>
+<head>
+<title>Home Taco</title>
+</head>
+<body>
+	<h1>Welcome to Taco</h1>
+	<img alt="luc cot" th:src="@{image/luc_meo.png}">
+	<video width="320" height="240" controls>
+		<source th:src="@{videos/meo.mp4}" type="video/mp4">
+		<source src="movie.ogg" type="video/ogg">
+		Your browser does not support the video tag.
+	</video>
+	<a th:href="@{/design}">Design taco</a>
+	<a th:if="not ${principal}" th:href="@{/register}">Register</a>
+	<a th:if="not ${principal}" th:href="@{/tacologin}">Log in</a>
+	<form th:if="${principal}" th:action="@{/logout}" method="POST">
+		<input type="submit" value="logout">
+	</form>
+</body>
 </html>
