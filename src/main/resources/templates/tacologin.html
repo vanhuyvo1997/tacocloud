@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Taco Design</title>
+</head>
+<body>
+	<h1>Taco Design</h1>
+	<a th:href="@{/}">Home</a>
+	<a th:href="@{/register}">Register</a>
+	<form method="POST" th:action="@{/authenticate}">
+		<div>
+			<label>User name: </label>
+			<input name="username" type="text">
+		</div>
+		<div>
+			<label>password: </label>
+			<input name="password" type="password">
+		</div>
+		<br>
+		<button type="submit">Login</button>
+	</form>
+</body>
+</html>

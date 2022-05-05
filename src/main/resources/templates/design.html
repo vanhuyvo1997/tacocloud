@@ -5,6 +5,9 @@
 </head>
 <body>
 	<h1>Taco Design</h1>
+	<form th:action="@{/logout}" method="POST">
+		<input type="submit" value="logout">
+	</form>
 	<form method="POST" th:action="@{/design}" th:object="${taco}">
 		<div>
 			<h3>Designate your wrap:</h3>
