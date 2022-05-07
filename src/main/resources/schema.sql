@@ -1,8 +1,8 @@
 create table hibernate_sequence (next_val bigint) engine=InnoDB;
 insert into hibernate_sequence values ( 1 );
-create table ingredient (id varchar(255) not null, name varchar(32) not null, type varchar(10) not null, primary key (id)) engine=InnoDB;
-create table taco (id bigint not null, created_at datetime(6), name varchar(32) not null, order_id bigint, primary key (id)) engine=InnoDB;
-create table taco_ingredients (tacos_id bigint not null, ingredients_id varchar(255) not null) engine=InnoDB;
+
+
+
 create table taco_order (id bigint not null, cccvv varchar(255), cc_expiration varchar(255), cc_number varchar(255), delivery_city varchar(255), delivery_name varchar(255), delivery_state varchar(255), delivery_street varchar(255), delivery_zip varchar(255), placed_at datetime(6), user_id bigint, primary key (id)) engine=InnoDB;
 create table user (id bigint not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB;
 alter table taco add constraint FK184lm2u57rhvl81xqayd08nwx foreign key (order_id) references taco_order (id);

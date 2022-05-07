@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
 				.antMatchers("/order", "/design").hasAnyAuthority("ROLE_USER")
-				.antMatchers("/**").permitAll()
+				.antMatchers("/**", "/").permitAll()
 			.and()
 				.formLogin()
 					.loginPage("/tacologin")
@@ -46,7 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					.defaultSuccessUrl("/")
 			.and()
 				.logout()
-					.logoutSuccessUrl("/");
+					.logoutSuccessUrl("/")
+			.and()
+				.csrf()
+					.disable();
 	}
 
 }

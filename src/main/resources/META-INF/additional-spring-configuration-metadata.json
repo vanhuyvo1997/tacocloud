@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "taco.props.order.page-size",
+  "type": "java.lang.Integer",
+  "description": "set order page size"
+}]}

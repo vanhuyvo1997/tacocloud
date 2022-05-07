@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,7 +34,7 @@ public class Taco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	@Column(name = "name", length = 32, nullable = false)
 	@NotNull
@@ -45,7 +47,8 @@ public class Taco {
 	@ManyToMany(targetEntity = Ingredient.class)
 	@NotEmpty(message = "Ingredient must be chosen")
 	private List<Ingredient> ingredients;
-
+	
+	@JsonIgnore
 	@ManyToOne(targetEntity = TacoOrder.class)
 	private TacoOrder order;
 

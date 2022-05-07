@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/tacocloud
+    username: root
+    password: huy-developer97$
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  file:
+    name: var/logs/taco-huy.log
+  level:
+    root: info
+    org:
+      springframeword:
+        security: trace
+server:
+  port: 8099
