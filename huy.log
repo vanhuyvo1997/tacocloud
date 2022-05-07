@@ -1,0 +1,24 @@
+2022-05-06 15:10:10.080  INFO 10600 --- [restartedMain] tacos.TacocloudApplication               : Starting TacocloudApplication using Java 15.0.1 on DESKTOP-NNAKQS4 with PID 10600 (F:\TodoList-workspace\tacocloud\target\classes started by vanhu in F:\TodoList-workspace\tacocloud)
+2022-05-06 15:10:10.080  INFO 10600 --- [restartedMain] tacos.TacocloudApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-05-06 15:10:10.170  INFO 10600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-06 15:10:10.176  INFO 10600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
+2022-05-06 15:10:10.238  INFO 10600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-06 15:10:10.239  INFO 10600 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-06 15:10:10.239  INFO 10600 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-06 15:10:10.251  INFO 10600 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-06 15:10:10.251  INFO 10600 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 169 ms
+2022-05-06 15:10:10.266  INFO 10600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2022-05-06 15:10:10.285  INFO 10600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2022-05-06 15:10:10.291  INFO 10600 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-06 15:10:10.293  INFO 10600 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-06 15:10:10.343  INFO 10600 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-06 15:10:10.344  INFO 10600 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-06 15:10:10.381  WARN 10600 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-06 15:10:10.402  INFO 10600 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ee111d9, org.springframework.security.web.context.SecurityContextPersistenceFilter@52b7d521, org.springframework.security.web.header.HeaderWriterFilter@3f5980ce, org.springframework.security.web.csrf.CsrfFilter@230cb25c, org.springframework.security.web.authentication.logout.LogoutFilter@422a281d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3d18aca7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@312ae648, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42065f53, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ec08b8d, org.springframework.security.web.session.SessionManagementFilter@14ef1bb2, org.springframework.security.web.access.ExceptionTranslationFilter@6f4197e8, org.springframework.security.web.access.intercept.AuthorizationFilter@54d8b1b8]
+2022-05-06 15:10:10.464  INFO 10600 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-06 15:10:10.471  INFO 10600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-06 15:10:10.474  INFO 10600 --- [restartedMain] tacos.TacocloudApplication               : Started TacocloudApplication in 0.409 seconds (JVM running for 257.14)
+2022-05-06 15:10:10.475  INFO 10600 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-05-06 15:10:54.167  INFO 10600 --- [Thread-35] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-06 15:10:54.168  INFO 10600 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2022-05-06 15:10:54.170  INFO 10600 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.

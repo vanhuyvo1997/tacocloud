@@ -1,0 +1,1 @@
+create table ingredient (id varchar(255) not null, name varchar(32) not null, type varchar(10) not null, primary key (id)) engine=InnoDB;

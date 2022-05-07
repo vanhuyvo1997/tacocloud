@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active:
+    - prod
+  datasource:    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/tacocloud    username: root
+    password: huy-developer97$
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:      ddl-auto: update
+    show-sql: true
+  sql:    init:
+      schema-locations:
+      - classpath:/taco.sql
+      - classpath:/ingredient.sql
+      - classpath:/taco_ingredients.sql      - classpath:/schema.sql
+      data-locations:
+      - classpath:/data-mysql.sql      platform: mysql
+#      mode: always
+
+logging:  file:     name: var/logs/taco-huy.log  level:
+    root: info
+    org:
+      springframeword:
+        security: info
+server:
+  port: 8080
+taco:
+  props:
+    order:
+      page-size: 25
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - prod  
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/tacocloud
+    username: root
+    password: huy-developer97$
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  file:
+    name: var/logs/taco-huy.log
+  level:
+    root: info
+    org:
+      springframeword:
+        security: trace
+server:
+  port: 8089
+
+      
